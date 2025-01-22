@@ -20,10 +20,15 @@ void app() {
 		// adc 대기
 		HAL_ADC_PollForConversion(&hadc1, 1);
 		// 값 읽기
-		uint16_t value = HAL_ADC_GetValue(&hadc1);
+		uint16_t value1 = HAL_ADC_GetValue(&hadc1);
+		// adc 종료
+		// adc 대기
+		HAL_ADC_PollForConversion(&hadc1, 1);
+		// 값 읽기
+		uint16_t value2 = HAL_ADC_GetValue(&hadc1);
 		// adc 종료
 		HAL_ADC_Stop(&hadc1);
-		printf("cds value = %d\n", value);
+		printf("cds value = %d %d\n", value1, value2);
 		HAL_Delay(100);
 	}
 }
